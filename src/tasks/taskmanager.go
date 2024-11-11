@@ -77,7 +77,6 @@ func(tm *TaskManager) CreateNewTask() {
 		fmt.Printf("ID: %d, Description: %s, Complete: %v, Comments: %v\n",
 			task.TaskID, task.TaskDescription, task.TaskComments, task.TaskIsComplete)
 	}
-	
-	}
+}
 
 
