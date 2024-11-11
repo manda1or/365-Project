@@ -1,0 +1,1 @@
+This is a project using Go for my IFT-365 Final Project. The project is a renovation website that will allow user login, task management, media uploads, reviews, cost estimation, and create new renovation projects.
