@@ -1,9 +1,18 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
+	"365-Project/src/tasks"
 )
 
 func main() {
-	fmt.Println("test")
+
+	//Task Manager instance
+	tm := tasks.TaskManager{}
+
+	// Task Creation
+	tm.CreateNewTask()
+
+	// Displays All Tasks
+	tm.ShowTasks()
 }

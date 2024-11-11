@@ -15,7 +15,11 @@ type TaskStruct struct {
 	TaskIsComplete  bool
 }
 
-func createNewTask() {
+type TaskManager struct {
+	Tasks []TaskStruct
+}
+
+func(tm *TaskManager) CreateNewTask() {
 	var taskSlice []TaskStruct
 	scanner := bufio.NewScanner(os.Stdin)
 
@@ -66,11 +70,14 @@ func createNewTask() {
 
 		fmt.Println("New task added!")
 	}
-
+}
+	func(tm *TaskManager) ShowTasks() {
 	fmt.Println("All Tasks:")
-	for _, task := range taskSlice {
+	for _, task := range tm.Tasks {
 		fmt.Printf("ID: %d, Description: %s, Complete: %v, Comments: %v\n",
 			task.TaskID, task.TaskDescription, task.TaskComments, task.TaskIsComplete)
 	}
+	
+	}
 
-}
+
