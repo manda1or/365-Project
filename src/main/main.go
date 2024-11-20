@@ -1,7 +1,8 @@
 package main
 
 import (
-	"365-Project/src/login" // Import the login package
+	"365-Project/src/costestimate"
+	"365-Project/src/login"
 	"fmt"
 )
 
@@ -21,8 +22,8 @@ func main() {
 			// Call the login system
 			login.RunLoginSystem()
 		case 2:
-			// Placeholder for other tasks
-			fmt.Println("Performing other tasks...")
+			// Call cost estimate
+			costestimate.RunCostEstimator()
 		case 3:
 			fmt.Println("Goodbye!")
 			return
