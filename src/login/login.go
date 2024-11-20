@@ -12,28 +12,31 @@ import (
 const credentialsFile = "src/login/credentials.txt"
 
 // RunLoginSystem handles the login system loop
-func RunLoginSystem() {
-	for {
-		fmt.Println("\n--- Login System ---")
-		fmt.Println("1. Register")
-		fmt.Println("2. Login")
-		fmt.Println("3. Back to Main Menu")
-		fmt.Print("Choose an option: ")
+func RunLoginSystem() string {
+    for {
+        fmt.Println("\n--- Login System ---")
+        fmt.Println("1. Register")
+        fmt.Println("2. Login")
+        fmt.Println("3. Back to Main Menu")
+        fmt.Print("Choose an option: ")
 
-		var choice int
-		fmt.Scan(&choice)
+        var choice int
+        fmt.Scan(&choice)
 
-		switch choice {
-		case 1:
-			register()
-		case 2:
-			login()
-		case 3:
-			return
-		default:
-			fmt.Println("Invalid choice. Please try again.")
-		}
-	}
+        switch choice {
+        case 1:
+            register()
+        case 2:
+            username := login()
+            if username != "" {
+                return username
+            }
+        case 3:
+            return ""
+        default:
+            fmt.Println("Invalid choice. Please try again.")
+        }
+    }
 }
 
 // Register a new user
@@ -59,18 +62,19 @@ func register() {
 }
 
 // Log in an existing user
-func login() {
-	var username, password string
-	fmt.Print("Enter username: ")
-	fmt.Scan(&username)
-	fmt.Print("Enter password: ")
-	fmt.Scan(&password)
+func login() string {
+    var username, password string
+    fmt.Print("Enter username: ")
+    fmt.Scan(&username)
+    fmt.Print("Enter password: ")
+    fmt.Scan(&password)
 
-	if validateCredentials(username, password) {
-		fmt.Println("Login successful! Welcome", username)
-	} else {
-		fmt.Println("Invalid username or password.")
-	}
+    if validateCredentials(username, password) {
+        fmt.Println("Login successful! Welcome,", username)
+        return username
+    }
+    fmt.Println("Invalid username or password.")
+    return ""
 }
 
 // Save credentials to file
