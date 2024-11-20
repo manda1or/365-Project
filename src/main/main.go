@@ -1,24 +1,34 @@
 package main
 
 import (
-	"365-Project/src/reviews"
-	"365-Project/src/tasks"
 	"fmt"
+	"src/login" // Import the login package
 )
 
 func main() {
+	for {
+		fmt.Println("Welcome to the Main Application")
+		fmt.Println("1. Login System")
+		fmt.Println("2. Other Tasks")
+		fmt.Println("3. Exit")
+		fmt.Print("Choose an option: ")
 
-	//Task Manager instance
-	tm := tasks.TaskManager{}
-	// Task Creation
-	tm.CreateNewTask()
-	// Displays All Tasks
-	tm.ShowTasks()
+		var choice int
+		fmt.Scan(&choice)
 
-	// Review Code
-	review := reviews.CreateNewReview()
-	fmt.Println("Review List:")
-	fmt.Printf("Name: %s\n", review.ReviewerName)
-	fmt.Printf("Comment: %s\n", review.ReviewComment)
-	fmt.Printf("Rating: %d\n", review.ReviewRating)
+		switch choice {
+		case 1:
+			// Call the login system
+			login.RunLoginSystem()
+		case 2:
+			// Placeholder for other tasks
+			fmt.Println("Performing other tasks...")
+		case 3:
+			fmt.Println("Goodbye!")
+			return
+		default:
+			fmt.Println("Invalid choice. Please try again.")
+		}
+	}
 }
+
