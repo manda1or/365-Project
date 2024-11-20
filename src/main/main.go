@@ -10,7 +10,7 @@ func main() {
 	for {
 		fmt.Println("Welcome to Jauregui Renovations!")
 		fmt.Println("1. Login System")
-		fmt.Println("2. Other Tasks")
+		fmt.Println("2. Cost Estimator")
 		fmt.Println("3. Exit")
 		fmt.Print("Choose an option: ")
 
