@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -74,6 +75,10 @@ func login() {
 
 // Save credentials to file
 func saveCredentials(username, password string) error {
+	dir :=  filepath.Dir(credentialsFile)
+	if _, err := os.Stat(dir); os.IsNotExist(err) {
+		os.MkdirAll(dir, 0755)
+	}
 	file, err := os.OpenFile(credentialsFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		return err
