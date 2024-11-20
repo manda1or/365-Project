@@ -46,7 +46,16 @@ func createProject(username string) {
         comment = scanner.Text()
     }
 
-    filename := fmt.Sprintf("src/renovproject/%s.txt", projectName)
+    // Ensure the directory exists
+    projectDir := "src/renovproject"
+    err := os.MkdirAll(projectDir, os.ModePerm)
+    if err != nil {
+        fmt.Println("Error creating project directory:", err)
+        return
+    }
+
+    // Create the project file
+    filename := fmt.Sprintf("%s/%s.txt", projectDir, projectName)
     file, err := os.Create(filename)
     if err != nil {
         fmt.Println("Error creating project file:", err)
