@@ -4,6 +4,7 @@ import (
 	"365-Project/src/costestimate"
 	"365-Project/src/login"
 	"365-Project/src/renovproject"
+	"365-Project/src/reviews"
 	"fmt"
 )
 
@@ -14,7 +15,8 @@ func main() {
 		fmt.Println("1. Login System")
 		fmt.Println("2. Flooring Cost Estimator")
 		fmt.Println("3. Renovation Projects")
-		fmt.Println("4. Exit")
+		fmt.Println("4. Reviews")
+		fmt.Println("5. Exit")
 		fmt.Print("Choose an option: ")
 
 		var choice int
@@ -34,6 +36,12 @@ func main() {
 				renovproject.RunRenovProject(loggedInUser)
 			}
 		case 4:
+			review := reviews.CreateNewReview()
+			fmt.Println("\nReview Summary: ")
+			fmt.Printf("Reviewer: %s\n", review.ReviewerName)
+			fmt.Printf("Comment: %s\n:", review.ReviewComment)
+			fmt.Printf("Rating: %d/5\n", review.ReviewRating)
+		case 5:
 			fmt.Println("Goodbye!")
 			return
 		default:
