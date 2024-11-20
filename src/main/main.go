@@ -1,13 +1,13 @@
 package main
 
 import (
+	"365-Project/src/login" // Import the login package
 	"fmt"
-	"src/login" // Import the login package
 )
 
 func main() {
 	for {
-		fmt.Println("Welcome to the Main Application")
+		fmt.Println("Welcome to Jauregui Renovations!")
 		fmt.Println("1. Login System")
 		fmt.Println("2. Other Tasks")
 		fmt.Println("3. Exit")
@@ -31,4 +31,3 @@ func main() {
 		}
 	}
 }
-
